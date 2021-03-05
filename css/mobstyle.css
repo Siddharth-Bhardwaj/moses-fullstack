@@ -84,6 +84,18 @@ body {
     display: block;
     height: auto;
     background-color: #fc4445;
+    padding-top: 70px;
+}
+
+.football-calendar {
+    display: block;
+    height: 105vh;
+    background-color: #fc4445;
+    padding-top: 70px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .thumb {
@@ -288,4 +300,52 @@ body {
     font-family: "Montserrat", sans-serif;
     text-align: center;
     color: rgb(41, 41, 41);
+}
+
+.table .btn {
+    /* padding: 0; */
+    width: 80%;
+    height: 50%;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+}
+
+.table .btn .fa-check,
+.table .btn .fa-times {
+    margin: auto;
+}
+
+.table td {
+    text-align: center;
+    padding: 0;
+    height: 12vh;
+}
+
+.table th {
+    padding: 0;
+    text-align: center;
+    height: 5vh;
+    line-height: 5vh;
+}
+
+.football-calendar .container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.football-calendar .container .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.football-calendar .container .row .col-md-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.timeslot {
+    margin-bottom: 1.5rem;
 }

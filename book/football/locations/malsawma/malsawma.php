@@ -4,7 +4,7 @@ function build_calendar($month, $year){
     $mysqli =  new mysqli('localhost','root','','bookingcalendar');
     
 
-    $daysOfWeek = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    $daysOfWeek = array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     $firstDayOfMonth  = mktime(0,0,0,$month,1,$year);
     $numberDays = date('t', $firstDayOfMonth);
     $dateComponents = getDate($firstDayOfMonth);
@@ -47,11 +47,13 @@ function build_calendar($month, $year){
         $dayName = strtolower(date('l',strtotime($date)));
         $today = $date==date('Y-m-d')?'today':'';
         if($date<date('Y-m-d')){
-            $calendar .="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs'>N/A</a></td>";
+            $calendar .="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs'><i class='fa fa-times' aria-hidden='true'></i>
+            </a></td>";
         }
         
         else{
-            $calendar .="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a></td>";
+            $calendar .="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'><i class='fa fa-check' aria-hidden='true'></i>
+            </a></td>";
         }
 
         // $calendar .="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-success btn-xs'>Book</a></td>";
@@ -88,7 +90,7 @@ function build_calendar($month, $year){
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="../../../../css/style.css" />
+        <link rel="stylesheet" media="screen and (min-device-width: 841px)" href="../../../../css/style.css" />
 
         <link rel="stylesheet" href="../../../../css/font-awesome.min.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -102,7 +104,7 @@ function build_calendar($month, $year){
             href="../../../../css/mobstyle.css"
         />
         <style>
-            @media only screen and(max-width:760px),
+            /* @media only screen and(max-width:760px),
             (min-device-width:802px) and (max-device-width: 1020px) {
                 table,
                 thead,
@@ -150,7 +152,7 @@ function build_calendar($month, $year){
                 td:nth-of-type(7):before{
                     content: "Saturday";
                 }
-            }
+            } */
 
             @media only screen and (min-device-width:320px) and (max-device-width: 480px){
                 body{
@@ -169,9 +171,9 @@ function build_calendar($month, $year){
                 table {
                     table-layout: fixed;
                 }
-                td {
+                /* td {
                     width: 33%;
-                }
+                } */
                 
             }
 
@@ -213,7 +215,7 @@ function build_calendar($month, $year){
                             <li class="nav-item">
                                 <a
                                     class="nav-link float-right"
-                                    href="../../../index.html#events"
+                                    href="../../../../index.html#events"
                                     >Bookings</a
                                 >
                             </li>
@@ -230,9 +232,9 @@ function build_calendar($month, $year){
 
         <!-- Landing -->
 
-        <div class="container-fluid football-locations" id="events">
+        <div class="container-fluid football-calendar" >
             <div class="container">
-                <div class="row align-items-center h-50 py-4 py-md-0">
+                <div class="row align-items-center py-4 py-md-0">
                     <div class="col-md-12">
                         <?php
                             $dateComponents = getdate();

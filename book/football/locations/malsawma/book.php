@@ -80,7 +80,7 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="../../../../css/style.css" />
+        <link rel="stylesheet" media="screen and (min-device-width: 841px)"s href="../../../../css/style.css" />
 
         <link rel="stylesheet" href="../../../../css/font-awesome.min.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -141,19 +141,17 @@
 
         <!-- Landing -->
 
-        <div class="container-fluid football-locations" id="events">
+        <div class="container-fluid football-calendar" id="events">
             <div class="container">
 				<h1 class="text-center">Book for <?php echo date('F d, Y',strtotime($date)); ?></h1>
-                <div class="row ">
-                    <div class="col-md-12">
-                        <?php echo isset($msg)?$msg:""; ?>
-                    </div>
+                <div class="row text-center my-5">
+                    
                     <?php 
                         $timeslots = timeslots($duration, $cleanup, $start, $end); 
                         foreach($timeslots as $ts){
                     ?>
-                    <div class="col-md-2">
-                        <div class="form-group">
+                    <div class="col-md-4">
+                        <div class="form-group timeslot">
                             <?php 
                                 if(in_array($ts,$bookings)){
                             ?>
@@ -179,7 +177,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="" method="post">
+                                <form action="checkout.php" method="post">
                                     <div class="form-group">
                                         <label for="">Timeslot</label>
                                         <input required type="text" readonly name="timeslot" id="timeslot" class="form-control">
@@ -192,7 +190,12 @@
                                         <label for="">Phone</label>
                                         <input required type="text" name="phone" class="form-control">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="">Email</label>
+                                        <input required type="text" name="email" class="form-control">
+                                    </div>
                                     <input type="hidden" name="id" value="<?php echo time(); ?>" />
+                                    <input type="hidden" name="date" value="<?php echo $date; ?>" />
                                     <div class="form-group pull-right">
                                         <button class="btn btn-primary" type="submit" name="submit">Submit</button>
                                     </div>

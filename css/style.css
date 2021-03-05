@@ -85,6 +85,18 @@ body {
     padding-top: 70px;
 }
 
+.football-calendar {
+    height: 140vh;
+    background-color: #fc4445;
+    padding-top: 70px;
+}
+
+.calendar {
+    height: 140vh;
+    background-color: #fc4445;
+    padding-top: 70px;
+}
+
 .location {
     position: absolute;
     margin: 0px 15px;
@@ -284,4 +296,20 @@ body {
     font-family: "Montserrat", sans-serif;
     text-align: center;
     color: rgb(41, 41, 41);
+}
+
+.table {
+    text-align: center;
+}
+
+.table .btn {
+    width: 80%;
+}
+
+.book {
+    width: 70%;
+}
+
+.timeslot {
+    margin-bottom: 2.5rem;
 }
